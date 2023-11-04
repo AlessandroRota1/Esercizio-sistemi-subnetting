@@ -52,6 +52,53 @@ namespace Esercizio_sistemi_subnetting
             return lassannet;
         }
 
+        public void Subnet(double bit_sotto)
+        {
+            double n = bit_sotto;
+            string sub="";
+
+            for (int i = 0; i < n; i++)
+            {
+                sub += "1";
+            }
+
+            for (double i = n; i < 8; i++)
+            {
+                sub += "0";
+            }
+
+            double valore = 0;
+            double elevazione = 7;
+
+            for (int i = 0; i < sub.Length; i++)
+            {
+                double bit = Convert.ToInt32(sub[i]);
+
+                if (sub[i] == '1')
+                {
+                    valore += Math.Pow(2, elevazione);
+                }
+
+                elevazione--;
+            }
+
+            if (classe == "C")
+            {
+                textBox1.Text=("Subnet mask: 255.255.255." + valore);
+            }
+
+            else if (classe == "B")
+            {
+                textBox1.Text=("Subnet mask: 255.255." + valore + ".0");
+            }
+
+            else
+            {
+                textBox1.Text=("Subnet mask: 255." + valore + ".0.0");
+            }
+
+        }
+
 
 
         private void Host_TextChanged(object sender, EventArgs e)
@@ -94,7 +141,7 @@ namespace Esercizio_sistemi_subnetting
                 bitrete = 24;
             }
 
-            textBox1.Text = Convert.ToString(subnetmask());
+            textBox1.Text = Convert.ToString(Subnet(double.Parse(Sottoreti.Text)));
         }
     }
 }
