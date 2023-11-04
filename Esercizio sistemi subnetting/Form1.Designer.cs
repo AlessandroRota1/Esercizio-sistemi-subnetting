@@ -37,6 +37,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.Indirizzoprivato = new System.Windows.Forms.TextBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.label5 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -114,11 +116,29 @@
             this.label4.TabIndex = 8;
             this.label4.Text = "Indirizzo base privato";
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(420, 185);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(100, 20);
+            this.textBox1.TabIndex = 9;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(420, 166);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(72, 13);
+            this.label5.TabIndex = 10;
+            this.label5.Text = "Subnet mask:";
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(800, 450);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.textBox1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.Indirizzoprivato);
             this.Controls.Add(this.label3);
@@ -146,6 +166,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.TextBox Indirizzoprivato;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Label label5;
     }
 }
 

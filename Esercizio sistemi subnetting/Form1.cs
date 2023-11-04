@@ -17,6 +17,42 @@ namespace Esercizio_sistemi_subnetting
         {
             InitializeComponent();
         }
+        public int bitrete;
+        public double subnetmask()
+        {
+            int esponente = 0;
+            double lassannet=0;
+            int ultimobit = 0;
+            while (int.Parse(Sottoreti.Text)<=Math.Pow(2,esponente))
+            {
+                esponente++;
+            }
+            if (Class.Text == "A")
+            {
+                Indirizzoprivato.Text = "10.0.0.0";
+                bitrete = 8 + esponente;
+
+            }
+            if (Class.Text == "B")
+            {
+                Indirizzoprivato.Text = "172.16.0.0";
+                bitrete = 16+esponente;
+            }
+            if (Class.Text == "C")
+            {
+                Indirizzoprivato.Text = "192.168.0.0";
+                bitrete = 24 + esponente;
+            }
+            ultimobit = ultimobit - esponente;
+
+            for (int i=ultimobit; i< bitrete;i++) 
+            { 
+                lassannet= lassannet+Math.Pow(2, i);
+            }
+            return lassannet;
+        }
+
+
 
         private void Host_TextChanged(object sender, EventArgs e)
         {
@@ -25,7 +61,6 @@ namespace Esercizio_sistemi_subnetting
 
         private void Calcola_Click(object sender, EventArgs e)
         {
-            int bitrete;
             if (Math.Log(int.Parse(Sottoreti.Text), 2) + Math.Log(int.Parse(Host.Text) + 2, 2) <= 8)
             {
                 classe = "C";
@@ -58,6 +93,8 @@ namespace Esercizio_sistemi_subnetting
                 Indirizzoprivato.Text = "192.168.0.0";
                 bitrete = 24;
             }
+
+            textBox1.Text = Convert.ToString(subnetmask());
         }
     }
 }
